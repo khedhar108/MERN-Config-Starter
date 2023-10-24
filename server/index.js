@@ -1,9 +1,10 @@
 // Dotenv
 import dotenv from "dotenv";
 dotenv.config();
+import express from "express";
 // Routes
 import User from "./routes/myroute.js";
-import express from "express";
+// Database Connection 
 import connectdb from "./config/connectdb.js";
 // import cors from "cors"; //Solving errors while connecting --back end to front end.
 
@@ -15,16 +16,19 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//----------------------
+//----------      --------
 // Database Connection
 // connectDB(MONGODB_URL);
-// registering all routes
-app.use("/", User);
-// app.get ("/check", (req, res) => {
-//   res.send("Welcome to backend!");
-// })
 
-const start = async () => {
+// registering all routes
+// app.use("/", User);
+// -------      -------
+
+app.get("/", (req, res) => {
+  res.send("Welcome to backend!");
+});
+
+const startPortAndDatabase = async () => {
   try {
     // await connectdb()
     app.listen(PORT, () => {
@@ -34,4 +38,18 @@ const start = async () => {
     console.log(err);
   }
 };
-start();
+startPortAndDatabase();
+
+/**==============================Basic logic to start the backend============
+      import express from "express";
+      const app = express();
+      const PORT = 3080;
+
+      app.get("/", (req, res) => {
+        res.send("welcome");
+      });
+
+      app.listen(PORT, () => {
+        console.log(`listening on port http://localhost:${PORT}`);
+      });
+ */
