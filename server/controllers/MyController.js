@@ -1,4 +1,4 @@
-import { exampleModel } from "../models/exampleSchema";
+import { exampleModel } from "../models/exampleSchema.js";
 
 class MyController {
   static logic1 = async (req, res) => {
