@@ -6,26 +6,19 @@ import express from "express";
 import User from "./routes/myroute.js";
 import connectDB from "./configuration/connectDB.js";
 
-// Database Connection 
+// Database Connection
 
 // import cors from "cors"; //Solving errors while connecting --back end to front end.
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 // Registering middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//----------      --------
-
-
 // registering all routes
 app.use("/", User);
-// -------      -------
-
-
 
 const startPortAndConnectDatabase = async () => {
   try {

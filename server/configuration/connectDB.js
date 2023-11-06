@@ -5,7 +5,7 @@ dotenv.config();
 //!  Add .js extension  otherwiese get Error
 import { DB_NAME } from "../constants.js";
 
-const MONGODB_URL = `${process.env.MONGODB_URL}/${DB_NAME}`
+const MONGODB_URL = `${process.env.MONGODB_URL}/${DB_NAME}`;
 
 async function connectDB() {
   try {
@@ -16,9 +16,10 @@ async function connectDB() {
       //   useUnifiedTopology:true,
     });
     console.log("Connected Successfully 🙂");
-    console.log(`\n MongoDb Connected !! DB Host: ${connectionInstance.connection.host}`)
+    console.log(
+      `\n MongoDb Connected !! DB Host: ${connectionInstance.connection.host}`
+    );
     // console.log(connectionInstance)
-
   } catch (error) {
     console.log(`Error in connection MongoDB 😭: ${error}`);
     process.exit(1);
