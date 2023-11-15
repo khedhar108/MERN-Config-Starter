@@ -2,9 +2,9 @@
 import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
+import connectDB from "./configuration/connectDB.js";
 // Routes
 import User from "./routes/myroute.js";
-import connectDB from "./configuration/connectDB.js";
 
 // Database Connection
 
@@ -13,7 +13,7 @@ import connectDB from "./configuration/connectDB.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Registering middleware
+// Registering middleware- app.use()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
