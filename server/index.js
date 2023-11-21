@@ -1,24 +1,15 @@
-// Dotenv
+// Dotenv- always on top of every file
 import dotenv from "dotenv";
 dotenv.config();
-import express from "express";
+
+
+import { app } from "./app.js";
 import connectDB from "./configuration/connectDB.js";
-// Routes
-import User from "./routes/myroute.js";
 
 // Database Connection
-
-// import cors from "cors"; //Solving errors while connecting --back end to front end.
-
-const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Registering middleware- app.use()
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// registering all routes
-app.use("/", User);
 
 const startPortAndConnectDatabase = async () => {
   try {
